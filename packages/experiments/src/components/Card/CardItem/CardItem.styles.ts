@@ -16,11 +16,11 @@ export const CardItemStyles: ICardItemComponent['styles'] = (props, theme): ICar
       classNames.root,
       {
         width: 'auto',
-        height: 'auto'
+        height: 'auto',
+        padding: 12
       },
       disableChildPadding && {
-        marginLeft: -12,
-        marginRight: -13
+        padding: 0
       },
       grow && { flexGrow: grow === true ? 1 : grow },
       !grow &&

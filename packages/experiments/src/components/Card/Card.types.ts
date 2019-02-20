@@ -42,7 +42,6 @@ export interface ICardProps extends ICardSlots, IStyleableComponentProps<ICardPr
 export interface ICardTokens {
   boxShadow?: string;
   boxShadowHovered?: string;
-  padding?: number | string;
   width?: number | string;
   minWidth?: number | string;
   maxWidth?: number | string;

@@ -9,7 +9,6 @@ const GlobalClassNames = {
 
 const baseTokens: ICardComponent['tokens'] = {
   boxShadow: Depths.depth16,
-  padding: 12,
   minWidth: '200px',
   maxWidth: '250px'
 };
@@ -30,8 +29,6 @@ export const CardTokens: ICardComponent['tokens'] = (props, theme): ICardTokenRe
 ];
 
 export const CardStyles: ICardComponent['styles'] = (props, theme, tokens): ICardStylesReturnType => {
-  const { compact } = props;
-
   const classNames = getGlobalClassNames(GlobalClassNames, theme);
 
   return {
@@ -39,11 +36,10 @@ export const CardStyles: ICardComponent['styles'] = (props, theme, tokens): ICar
       classNames.root,
       {
         boxShadow: tokens.boxShadow,
-        padding: tokens.padding,
         width: tokens.width,
         minWidth: tokens.minWidth,
         maxWidth: tokens.maxWidth,
-        transition: 'box-shadow 0.5s ease',
+        transition: 'box-shadow 0.2s ease',
 
         selectors: {
           ':hover': {
@@ -53,25 +49,6 @@ export const CardStyles: ICardComponent['styles'] = (props, theme, tokens): ICar
       }
     ],
 
-    stack: [
-      classNames.stack,
-      {
-        selectors: {
-          '> *': {
-            height: 'auto',
-            textOverflow: 'ellipsis'
-          },
-
-          '> *:not(:first-child)': [
-            compact && {
-              marginLeft: '12px'
-            },
-            !compact && {
-              marginTop: '12px'
-            }
-          ]
-        }
-      }
-    ]
+    stack: [classNames.stack]
   };
 };
