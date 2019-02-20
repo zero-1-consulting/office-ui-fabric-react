@@ -1,6 +1,20 @@
 # Change Log - @uifabric/dashboard
 
-This log was last generated on Thu, 14 Feb 2019 13:34:54 GMT and should not be manually modified.
+This log was last generated on Wed, 20 Feb 2019 13:30:29 GMT and should not be manually modified.
+
+## 0.49.0
+Wed, 20 Feb 2019 13:30:29 GMT
+
+### Minor changes
+
+- Refactor of Wizard and SubwayNav Components
+
+## 0.48.0
+Fri, 15 Feb 2019 13:33:05 GMT
+
+### Minor changes
+
+- Add 'StackedBarChart' Visualization support to Recommendation Banner (MIP, Intune Recommendations will use this). Refactor existing visualizations into separate functional components.
 
 ## 0.47.5
 Thu, 14 Feb 2019 13:34:54 GMT
