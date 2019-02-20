@@ -23,8 +23,28 @@ export class CardBasicExample extends React.Component<{}, {}> {
           <Card.Item disableChildPadding>
             <Image src="https://placeimg.com/640/480/arch" width="100%" height="144px" />
           </Card.Item>
-          <Card.Item>
+          <Card.Item grow={1}>
             <Document name="Contoso Denver expansion design marketing hero guidelines" site="Contoso" />
+          </Card.Item>
+          <Card.Item>
+            <Helpful />
+          </Card.Item>
+          <Card.Item disableChildPadding>
+            <CardBar />
+          </Card.Item>
+        </Card>
+        <Card onClick={alertClicked}>
+          <Card.Item>
+            <PersonWithActivity name="Carol Poland" activity="commented" date="Nov 17, 2018" />
+          </Card.Item>
+          <Card.Item disableChildPadding>
+            <Image src="https://placeimg.com/640/480/nature" width="100%" height="144px" />
+          </Card.Item>
+          <Card.Item grow={1}>
+            <Document
+              name="Contoso Denver expansion design marketing hero guidelines this is a much longer title that will make the card taller"
+              site="Contoso"
+            />
           </Card.Item>
           <Card.Item>
             <Helpful />

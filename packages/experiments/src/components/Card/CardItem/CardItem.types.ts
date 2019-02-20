@@ -33,6 +33,11 @@ export interface ICardItemProps extends ICardItemSlots, IStyleableComponentProps
    * Defines how to align the StackItem along the x-axis (for vertical Stacks) or the y-axis (for horizontal Stacks).
    */
   align?: 'auto' | 'stretch' | 'baseline' | 'flex-start' | 'center' | 'flex-end';
+
+  /**
+   * Defines the flex basis for the item.
+   */
+  basis?: number | string;
 }
 
 export interface ICardItemTokens {}

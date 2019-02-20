@@ -6,7 +6,7 @@ const GlobalClassNames = {
 };
 
 export const CardItemStyles: ICardItemComponent['styles'] = (props, theme): ICardItemStylesReturnType => {
-  const { align, disableChildPadding, grow, shrink } = props;
+  const { align, disableChildPadding, grow, shrink, basis } = props;
 
   const classNames = getGlobalClassNames(GlobalClassNames, theme);
 
@@ -17,7 +17,8 @@ export const CardItemStyles: ICardItemComponent['styles'] = (props, theme): ICar
       {
         width: 'auto',
         height: 'auto',
-        padding: 12
+        padding: 12,
+        overflow: 'hidden'
       },
       disableChildPadding && {
         padding: 0
@@ -32,6 +33,9 @@ export const CardItemStyles: ICardItemComponent['styles'] = (props, theme): ICar
       },
       align && {
         justifySelf: align
+      },
+      basis && {
+        flexBasis: basis
       }
     ]
   } as ICardItemStyles;
