@@ -933,6 +933,36 @@ exports[`Component Examples renders Facepile.Basic.Example.tsx correctly 1`] = `
             display: flex;
             position: relative;
           }
+          &:hover .ms-Checkbox-checkbox {
+            background: #106ebe;
+            border-color: #106ebe;
+          }
+          &:focus .ms-Checkbox-checkbox {
+            background: #106ebe;
+            border-color: #106ebe;
+          }
+          @media screen and (-ms-high-contrast: active){&:hover .ms-Checkbox-checkbox {
+            background: Window;
+            border-color: Highlight;
+          }
+          @media screen and (-ms-high-contrast: active){&:focus .ms-Checkbox-checkbox {
+            background: Highlight;
+          }
+          @media screen and (-ms-high-contrast: active){&:focus:hover .ms-Checkbox-checkbox {
+            background: Highlight;
+          }
+          @media screen and (-ms-high-contrast: active){&:focus:hover .ms-Checkbox-checkmark {
+            color: Window;
+          }
+          @media screen and (-ms-high-contrast: active){&:hover .ms-Checkbox-checkmark {
+            color: Highlight;
+          }
+          &:hover .ms-Checkbox-text {
+            color: #333333;
+          }
+          &:focus .ms-Checkbox-text {
+            color: #333333;
+          }
     >
       <input
         checked={true}
@@ -972,35 +1002,14 @@ exports[`Component Examples renders Facepile.Basic.Example.tsx correctly 1`] = `
               text-align: left;
               user-select: none;
             }
-            &:hover .ms-Checkbox-checkbox {
-              background: #106ebe;
-              border-color: #106ebe;
-            }
-            &:focus .ms-Checkbox-checkbox {
-              background: #106ebe;
-              border-color: #106ebe;
-            }
-            @media screen and (-ms-high-contrast: active){&:hover .ms-Checkbox-checkbox {
-              background: Window;
-              border-color: Highlight;
-            }
-            @media screen and (-ms-high-contrast: active){&:focus .ms-Checkbox-checkbox {
-              background: Highlight;
-            }
-            @media screen and (-ms-high-contrast: active){&:focus:hover .ms-Checkbox-checkbox {
-              background: Highlight;
-            }
-            @media screen and (-ms-high-contrast: active){&:focus:hover .ms-Checkbox-checkmark {
-              color: Window;
-            }
-            @media screen and (-ms-high-contrast: active){&:hover .ms-Checkbox-checkmark {
-              color: Highlight;
-            }
-            &:hover .ms-Checkbox-text {
-              color: #333333;
-            }
-            &:focus .ms-Checkbox-text {
-              color: #333333;
+            &::before {
+              bottom: 0px;
+              content: "";
+              left: 0px;
+              pointer-events: none;
+              position: absolute;
+              right: 0px;
+              top: 0px;
             }
         htmlFor="checkbox-6"
       >
