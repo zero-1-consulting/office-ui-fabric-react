@@ -29,15 +29,15 @@ jobs:
           versionSpec: '$(NodeVersion)'
           checkLatest: true
 
-      # Install Rush repo dependencies
+      # Install repo dependencies
       - script: |
-          node common/scripts/install-run-rush.js install --bypass-policy
-        displayName: Run Rush install in office-ui-fabric-react repository
+          yarn
+        displayName: Run yarn in office-ui-fabric-react repository
 
-      # Build package in Rush repo
+      # Build package in repo
       - script: |
-          node common/scripts/install-run-rush.js build --to $(PackageName)
-        displayName: Run Rush build --to $(PackageName)
+          yarn buildto $(PackageName)
+        displayName: Build $(PackageName)
 
       # Run npm pack to simulate installation from feed
       - script: |
