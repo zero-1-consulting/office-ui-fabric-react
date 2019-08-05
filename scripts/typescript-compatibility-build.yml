@@ -89,6 +89,8 @@ jobs:
           TypeScriptVersion: 3.3
         'TypeScript 3.4':
           TypeScriptVersion: 3.4
+        'TypeScript 3.5':
+          TypeScriptVersion: 3.5
     steps:
       - checkout: none
       - task: NodeTool@0
