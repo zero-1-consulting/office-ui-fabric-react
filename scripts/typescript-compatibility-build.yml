@@ -106,7 +106,7 @@ jobs:
 
       # Clone repository containing versioned TypeScript sample apps
       - script: |
-          git clone $(CompatRepoUrl) $(Build.StagingDirectory)/__tests__
+          git clone --branch keco/fix-build $(CompatRepoUrl) $(Build.StagingDirectory)/__tests__
         displayName: Clone compatibility repository
 
       # Install repository's dependencies
