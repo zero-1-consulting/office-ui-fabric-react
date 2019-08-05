@@ -129,6 +129,12 @@ jobs:
         displayName: Pin @types/react and @types/react-dom to versions in office-ui-fabric-react under test
         workingDirectory: $(Build.StagingDirectory)/__tests__
 
+      # Run rush update --full
+      - script: |
+          node common/scripts/install-run-rush.js update --full
+        displayName: Run rush update --full
+        workingDirectory: $(Build.StagingDirectory)/__tests__
+
       # Build sample app consuming Office UI Fabric React to test TypeScript version compatibility
       - script: |
           node common/scripts/install-run-rush.js test --to $(TypeScriptVersion)-office-ui-fabric-react-test
