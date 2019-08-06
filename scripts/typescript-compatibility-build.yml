@@ -44,11 +44,11 @@ jobs:
           npm pack ./packages/$(PackageName)
         displayName: Run npm pack $(PackageName)
 
-      # # Save ReleaseId into a txt artifact file
-      # - script: |
-      #     echo *.tgz | grep -oP '(?<=office-ui-fabric-react-).*(?=.tgz)' >> $(Build.StagingDirectory)/compatMap.txt
-      #   name: setReleaseIdStep
-      #   displayName: Save ReleaseId into a txt artifact file
+      # Save ReleaseId into a txt artifact file
+      - script: |
+          echo *.tgz | grep -oP '(?<=office-ui-fabric-react-).*(?=.tgz)' >> $(Build.StagingDirectory)/compatMap.txt
+        name: setReleaseIdStep
+        displayName: Save ReleaseId into a txt artifact file
 
       # Rename built package tarball to reference later
       - script: |
@@ -75,22 +75,22 @@ jobs:
         #   TypeScriptVersion: 2.4
         # 'TypeScript 2.7':
         #   TypeScriptVersion: 2.7
-        'TypeScript 2.8':
-          TypeScriptVersion: 2.8
-        'TypeScript 2.9':
-          TypeScriptVersion: 2.9
+        # 'TypeScript 2.8':
+        #   TypeScriptVersion: 2.8
+        # 'TypeScript 2.9':
+        #   TypeScriptVersion: 2.9
         'TypeScript 3.0':
           TypeScriptVersion: 3.0
-        'TypeScript 3.1':
-          TypeScriptVersion: 3.1
-        'TypeScript 3.2':
-          TypeScriptVersion: 3.2
-        'TypeScript 3.3':
-          TypeScriptVersion: 3.3
-        'TypeScript 3.4':
-          TypeScriptVersion: 3.4
-        'TypeScript 3.5':
-          TypeScriptVersion: 3.5
+        # 'TypeScript 3.1':
+        #   TypeScriptVersion: 3.1
+        # 'TypeScript 3.2':
+        #   TypeScriptVersion: 3.2
+        # 'TypeScript 3.3':
+        #   TypeScriptVersion: 3.3
+        # 'TypeScript 3.4':
+        #   TypeScriptVersion: 3.4
+        # 'TypeScript 3.5':
+        #   TypeScriptVersion: 3.5
     steps:
       - checkout: none
       - task: NodeTool@0
