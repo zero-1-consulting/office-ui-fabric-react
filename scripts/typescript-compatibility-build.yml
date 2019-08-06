@@ -71,24 +71,24 @@ jobs:
     strategy:
       maxParallel: 1
       matrix:
-        # 'TypeScript 2.4':
-        #   TypeScriptVersion: 2.4
-        # 'TypeScript 2.7':
-        #   TypeScriptVersion: 2.7
-        # 'TypeScript 2.8':
-        #   TypeScriptVersion: 2.8
-        # 'TypeScript 2.9':
-        #   TypeScriptVersion: 2.9
-        # 'TypeScript 3.0':
-        #   TypeScriptVersion: 3.0
-        # 'TypeScript 3.1':
-        #   TypeScriptVersion: 3.1
-        # 'TypeScript 3.2':
-        #   TypeScriptVersion: 3.2
-        # 'TypeScript 3.3':
-        #   TypeScriptVersion: 3.3
-        # 'TypeScript 3.4':
-        #   TypeScriptVersion: 3.4
+        'TypeScript 2.4':
+          TypeScriptVersion: 2.4
+        'TypeScript 2.7':
+          TypeScriptVersion: 2.7
+        'TypeScript 2.8':
+          TypeScriptVersion: 2.8
+        'TypeScript 2.9':
+          TypeScriptVersion: 2.9
+        'TypeScript 3.0':
+          TypeScriptVersion: 3.0
+        'TypeScript 3.1':
+          TypeScriptVersion: 3.1
+        'TypeScript 3.2':
+          TypeScriptVersion: 3.2
+        'TypeScript 3.3':
+          TypeScriptVersion: 3.3
+        'TypeScript 3.4':
+          TypeScriptVersion: 3.4
         'TypeScript 3.5':
           TypeScriptVersion: 3.5
     steps:
@@ -131,9 +131,9 @@ jobs:
 
       # Build sample app consuming Office UI Fabric React to test TypeScript version compatibility
       - script: |
-          npm test
-        displayName: WIP
-        workingDirectory: $(Build.StagingDirectory)/__tests__/tests/$(TypeScriptVersion)
+          node common/scripts/install-run-rush.js test --to $(TypeScriptVersion)-office-ui-fabric-react-test
+        displayName: Build TypeScript $(TypeScriptVersion) test app
+        workingDirectory: $(Build.StagingDirectory)/__tests__
       # Write successful ts versions to compatMap.txt
       # - script: |
       #     echo $(TypeScriptVersion) >> $(Build.StagingDirectory)/compatMapDrop/compatMap.txt
