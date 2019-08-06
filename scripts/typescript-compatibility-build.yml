@@ -119,7 +119,7 @@ jobs:
 
       # Install built package tarball in sample app
       - script: |
-          npm install office-ui-fabric-react.tgz
+          npm install $(Build.StagingDirectory)/office-ui-fabric-react.tgz
         displayName: Install $(PackageName) in TypeScript $(TypeScriptVersion) test app
         workingDirectory: $(Build.StagingDirectory)/__tests__/tests/$(TypeScriptVersion)
 
