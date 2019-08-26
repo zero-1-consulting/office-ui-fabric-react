@@ -1783,6 +1783,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-syntax-highlighter@^10.2.1":
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/@types/react-syntax-highlighter/-/react-syntax-highlighter-10.2.1.tgz#b0f75c22cbe7d12104581648348d91d3cd7f13fa"
+  integrity sha512-M2BAOiiQ2KDkCiuhO1UxAsSNfrSegUfXL1MabRggOoqJoPpaoSuTxGF+TgLuAjMEVW8dJDtp7WpBjjRLMxWgrQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-test-renderer@^16.0.0":
   version "16.8.2"
   resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-16.8.2.tgz#ad544b5571ebfc5f182c320376f1431a2b725c5e"
@@ -3876,10 +3883,10 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-beachball@^1.11.7:
-  version "1.11.7"
-  resolved "https://registry.yarnpkg.com/beachball/-/beachball-1.11.7.tgz#7577e69ace7e59e2d5ca266fdd1ada452a7d67f8"
-  integrity sha512-t2IWU1qGfwzxIUcrb0DXDsgJOdo0MYocy4FZXBpYn8gIOD7VAupbnCYUR33l+fmBgmOugbnfZCmJ6y36fUW3AQ==
+beachball@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/beachball/-/beachball-1.12.0.tgz#82107cb3dd5d2bb4a25c15c8ba2d574d563b1afb"
+  integrity sha512-b3ldO/bDxbyXv+vbUOrpwriSdroADN1FNse+5rjlGtf7TTnym81o2t2hXbJ0v27v8y2CHI4jvzVXrmQhg2BjRQ==
   dependencies:
     fs-extra "^8.0.1"
     git-url-parse "^11.1.2"
@@ -6971,13 +6978,14 @@ flamebearer@^1.1.3:
     concat-stream "^1.6.2"
     opn "^5.3.0"
 
-flamegrill@0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/flamegrill/-/flamegrill-0.0.5.tgz#7a4fd0354a217f35a817a43364b79fccbc746a0c"
-  integrity sha512-BEifGrdcdv+OafbJ9LIGvx++QQKXrR8CvlmOnT2N6hGoK7wnm9AT/yyyPsP8vB5uXEG/GwqSQJyq02vDL1o/tQ==
+flamegrill@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/flamegrill/-/flamegrill-0.0.7.tgz#025fbf428ae7b92bae32a3d68c9b502bbcbc92f8"
+  integrity sha512-Xu4BzuSTa1/FOBJYbNxVarCHJoz+BuquXNhhkhT4LrFnQ3vy5WChrh8SO58toJ96aYs0hIjn51GmoRXr9JdGWw==
   dependencies:
     concat-stream "^2.0.0"
     flamebearer "^1.1.3"
+    n-readlines "^1.0.0"
     puppeteer "^1.13.0"
     yargs-parser "^13.1.0"
 
@@ -10693,6 +10701,11 @@ mute-stream@~0.0.4:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
+
+n-readlines@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/n-readlines/-/n-readlines-1.0.0.tgz#c353797f216c253fdfef7e91da4e8b17c29a91a6"
+  integrity sha512-ISDqGcspVu6U3VKqtJZG1uR55SmNNF9uK0EMq1IvNVVZOui6MW6VR0+pIZhqz85ORAGp+4zW+5fJ/SE7bwEibA==
 
 nan@^2.12.1, nan@^2.13.2:
   version "2.14.0"
