@@ -131,7 +131,7 @@ jobs:
 
       # Build sample app consuming Office UI Fabric React to test TypeScript version compatibility
       - script: |
-          node common/scripts/install-run-rush.js test --to $(TypeScriptVersion)-office-ui-fabric-react-test
+          node common/scripts/install-run-rush.js test --to $(TypeScriptVersion)-office-ui-fabric-react-test --verbose
         displayName: Build TypeScript $(TypeScriptVersion) test app
         workingDirectory: $(Build.StagingDirectory)/__tests__
       # Write successful ts versions to compatMap.txt
