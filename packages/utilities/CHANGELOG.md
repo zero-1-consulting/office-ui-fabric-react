@@ -1,7 +1,22 @@
 # Change Log - @uifabric/utilities
 
-This log was last generated on Mon, 23 Sep 2019 12:33:15 GMT and should not be manually modified.
+This log was last generated on Tue, 01 Oct 2019 12:33:48 GMT and should not be manually modified.
 
+## 7.3.0
+Tue, 01 Oct 2019 12:33:48 GMT
+
+### Minor changes
+
+- Async helpers now take in a target element which will be used to find the window object. (dzearing@microsoft.com)
+## 7.2.0
+Thu, 26 Sep 2019 12:32:32 GMT
+
+### Minor changes
+
+- mergeStyles and mergeStyleSets have a companion method which accepts options for setting RTL (jdh@microsoft.com)
+### Patches
+
+- Minor refinement to mergeAriaAttributeValues to correctly handleu false, therefore allowing (`cond && "something"). (cliff.koh@microsoft.com)
 ## 7.1.0
 Mon, 23 Sep 2019 12:33:15 GMT
 
