@@ -1,6 +1,18 @@
 import * as React from 'react';
-import { MessageBarButton, Link, Stack, StackItem, MessageBar, MessageBarType, ChoiceGroup, IStackProps } from 'office-ui-fabric-react';
+import {
+  MessageBarButton,
+  Link,
+  Stack,
+  StackItem,
+  MessageBar,
+  MessageBarType,
+  ChoiceGroup,
+  IStackProps,
+  PrimaryButton,
+  DefaultButton
+} from 'office-ui-fabric-react';
 import { TeachingBanner } from '@uifabric/experiments';
+// import { Button } from '../../Button';
 
 interface IExampleProps {
   resetChoice?: () => void;
@@ -23,8 +35,33 @@ const choiceGroupStyles = {
 
 const DefaultExample = (p: IExampleProps) => (
   <TeachingBanner>
-    Info/Default MessageBar.
-    <Link href="www.bing.com" target="_blank">
+    <strong className="ms-fontWeight-semibold">Default MessageBar.</strong>{' '}
+    <Link href="https://www.bing.com" target="_blank">
+      Visit our website.
+    </Link>
+  </TeachingBanner>
+);
+
+const PremiumExample = (p: IExampleProps) => (
+  <TeachingBanner
+    premium={true}
+    actionsContainer={{
+      'aria-label': 'jkjahsgdjhasjdi'
+    }}
+    actions={
+      <>
+        <PrimaryButton>Primary</PrimaryButton>
+        <DefaultButton>Default</DefaultButton>
+      </>
+    }
+    tokens={
+      {
+        // background: 'linear-gradient(to right, orange , yellow, green, cyan, blue, violet);'
+      }
+    }
+  >
+    <strong>Premium MessageBar.</strong>{' '}
+    <Link href="https://www.bing.com" target="_blank">
       Visit our website.
     </Link>
   </TeachingBanner>
@@ -36,13 +73,17 @@ const choiceOptions = [
     text: 'Default'
   },
   {
+    key: 'premium',
+    text: 'Premium'
+  },
+  {
     key: 'all',
     text: 'Show All'
   }
 ];
 
 export const TeachingBannerBasicExample: React.StatelessComponent = () => {
-  const [choice, setChoice] = React.useState<string | undefined>(choiceOptions[0].key);
+  const [choice, setChoice] = React.useState<string | undefined>(choiceOptions[2].key); // TODO: Switch back to choiceOptions[0].key
   const showAll = choice === 'all';
 
   const resetChoice = () => setChoice(undefined);
@@ -59,7 +100,10 @@ export const TeachingBannerBasicExample: React.StatelessComponent = () => {
           options={choiceOptions}
         />
       </StackItem>
-      <Stack {...verticalStackProps}>{(choice === 'default' || showAll) && <DefaultExample resetChoice={resetChoice} />}</Stack>
+      <Stack {...verticalStackProps}>
+        {(choice === 'default' || showAll) && <DefaultExample resetChoice={resetChoice} />}
+        {(choice === 'premium' || showAll) && <PremiumExample resetChoice={resetChoice} />}
+      </Stack>
     </Stack>
   );
 };
