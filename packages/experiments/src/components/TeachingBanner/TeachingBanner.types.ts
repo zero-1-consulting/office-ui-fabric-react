@@ -1,5 +1,5 @@
 import { ITextSlot } from 'office-ui-fabric-react/lib/Text';
-import { BaseButton, Button, ITheme, IStackSlot, IStackItemSlot, IIconProps, IButtonProps } from 'office-ui-fabric-react';
+import { BaseButton, Button, ITheme, IStackSlot, IStackItemSlot, IIconProps, IButtonProps, ISchemeNames } from 'office-ui-fabric-react';
 import {
   IComponent,
   IComponentStyles,
@@ -55,7 +55,7 @@ export interface ITeachingBannerSlots {
    * Defines the icon that is displayed in Premium mode.
    * @defaultValue defaultIcon
    */
-  icon?: IFontIconSlot;
+  iconPremium?: IFontIconSlot;
 
   /**
    * Component sample prop. If provided, component is controlled.
@@ -66,7 +66,6 @@ export interface ITeachingBannerSlots {
    * Component sample prop. If provided, component is controlled.
    */
   actionsContainer?: IStackSlot;
-  // actionButton?: IButtonSlot;
   actionPrimaryButton?: ISlotProp<IButtonProps>;
   actionDefaultButton?: ISlotProp<IButtonProps>;
 
@@ -74,7 +73,6 @@ export interface ITeachingBannerSlots {
    * Component sample prop. If provided, component is controlled.
    */
   dismiss?: ISlotProp<IButtonProps>;
-  // dismiss?: IButtonSlot<IIconProps>;
 }
 
 /**
@@ -85,6 +83,11 @@ export interface ITeachingBannerSlots {
 export interface ITeachingBannerProps  // extends ITeachingBannerSlots,
   extends ISlottableProps<ITeachingBannerSlots>,
     IStyleableComponentProps<ITeachingBannerViewProps, ITeachingBannerTokens, ITeachingBannerStyles> {
+  /**
+   * @defaultValue 'strong'
+   */
+  scheme?: ISchemeNames;
+
   /**
    * Component sample default prop for use if component is uncontrolled.
    * @defaultValue 'Default Icon'
@@ -97,7 +100,6 @@ export interface ITeachingBannerProps  // extends ITeachingBannerSlots,
   /**
    * The actions you want to show on the other side.
    */
-  // actions?: JSX.Element;
   actions?: IButtonProps[];
 
   /**

@@ -12,23 +12,20 @@ import { Stack, StackItem, DefaultButton, PrimaryButton, IconButton } from 'offi
 export const TeachingBannerView: ITeachingBannerComponent['view'] = props => {
   const Slots = getSlots<ITeachingBannerProps, ITeachingBannerSlots>(props, {
     root: Stack,
-    icon: FontIcon,
+    iconPremium: FontIcon,
     textContainer: StackItem,
     actionsContainer: Stack,
-    // actionButton: Button
     actionPrimaryButton: PrimaryButton,
     actionDefaultButton: DefaultButton,
     dismiss: IconButton
   });
 
-  const { actions, children, premium, onDismiss } = props;
+  const { actions, children, premium, multiline, onDismiss, scheme = 'strong' } = props;
 
   return (
-    <ThemeProvider scheme="strong">
-      <Slots.root horizontal verticalAlign="center" tokens={{ childrenGap: 8 }}>
-        {/* <Slots.text onClick={props.onClick} /> */}
-        {/* <span>Status: {props.clicks} clicks</span> */}
-        {premium && <Slots.icon />}
+    <ThemeProvider scheme={scheme}>
+      <Slots.root horizontal verticalAlign="center" wrap={multiline !== false} tokens={{ childrenGap: 8 }}>
+        {premium && <Slots.iconPremium />}
         {children && (
           <Slots.textContainer grow shrink>
             {children}
@@ -37,9 +34,6 @@ export const TeachingBannerView: ITeachingBannerComponent['view'] = props => {
         {actions && (
           <Slots.actionsContainer horizontal tokens={{ childrenGap: 8 }}>
             {actions.map(itemProps =>
-              // (
-              //   <Slots.actionButton {...itemProps} />
-              // )
               itemProps.primary ? <Slots.actionPrimaryButton {...itemProps} /> : <Slots.actionDefaultButton {...itemProps} />
             )}
           </Slots.actionsContainer>

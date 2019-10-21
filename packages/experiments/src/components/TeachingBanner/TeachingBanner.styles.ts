@@ -41,10 +41,8 @@ export const TeachingBannerTokens: ITeachingBannerComponent['tokens'] = (props, 
  * {@docCategory TeachingBanner}
  */
 export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, theme, tokens): ITeachingBannerStylesReturnType => {
-  console.log(theme);
-
   const classNames = getGlobalClassNames(GlobalClassNames, theme);
-  const { palette, fonts, semanticColors } = theme;
+  const { palette } = theme;
   const color = tokens.color || palette.white;
   const background = tokens.background || palette.themePrimary;
 
@@ -60,90 +58,22 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
         width: '100%',
         minHeight: (props.premium && 60) || 40,
         borderRadius: 2,
+        color,
         background,
         boxSizing: 'border-box'
       }
     ],
-    icon: [
+    iconPremium: [
       classNames.icon,
       {
         fontSize: 24,
         marginRight: 6,
-        marginLeft: 6,
-        color
+        marginLeft: 6
+        // color
       }
     ],
-    textContainer: [
-      classNames.text,
-      props.multiline === false && { ...singleLineProps },
-      {
-        color,
-        selectors: {
-          // TODO: Probably a better way to manage Link colors
-          'a, a:hover, a:active, a:visited, a:active:hover': {
-            color
-          }
-        }
-      }
-    ],
-    actionsContainer: [
-      classNames.actions
-      // {
-      //   selectors: {
-      //     '.ms-Button--primary': {
-      //       backgroundColor: palette.white,
-      //       borderColor: palette.white,
-      //       color: palette.themePrimary,
-      //       selectors: {
-      //         '&:hover': {
-      //           backgroundColor: palette.themeLighter,
-      //           borderColor: palette.themeLighter,
-      //           color: palette.themePrimary
-      //         },
-      //         '&:focus': {
-      //           backgroundColor: palette.themeLighter,
-      //           borderColor: palette.white
-      //         },
-      //         '&:active': {
-      //           backgroundColor: palette.white,
-      //           borderColor: palette.white,
-      //           color: palette.themePrimary
-      //         }
-      //       }
-      //     },
-      //     '.ms-Button--default': {
-      //       color: palette.white,
-      //       backgroundColor: palette.themePrimary,
-      //       borderColor: palette.white,
-      //       selectors: {
-      //         // '> .ms-Button-label': {
-      //         //   color: palette.white
-      //         // },
-      //         '&:hover, &:focus': {
-      //           color: palette.themePrimary,
-      //           backgroundColor: palette.themeDarkAlt,
-      //           borderColor: palette.white
-      //           // selectors: {
-      //           //   '> .ms-Button-label': {
-      //           //     color: palette.themePrimary
-      //           //   }
-      //           // }
-      //         },
-      //         '&:active': {
-      //           color: palette.white,
-      //           backgroundColor: palette.themePrimary,
-      //           borderColor: palette.white
-      //           // selectors: {
-      //           //   '> .ms-Button-label': {
-      //           //     color: palette.white
-      //           //   }
-      //           // }
-      //         }
-      //       }
-      //     }
-      //   }
-      // }
-    ],
+    textContainer: [classNames.text, props.multiline === false && { ...singleLineProps }],
+    actionsContainer: [classNames.actions, { marginLeft: 'auto' }],
     dismiss: [
       classNames.dismiss,
       {
@@ -151,9 +81,7 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
         right: 0,
         top: 0,
         margin: 8,
-        // borderRadius: 0,
-        color: palette.white,
-        // fontSize: 12, // fonts.xSmall.fontSize,
+        // color,
         width: 24,
         height: 24,
         selectors: {
@@ -163,12 +91,10 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
             lineHeight: 12
           },
           ':hover': {
-            // background: palette.themeDarkAlt,
-            // color: palette.white
+            background: 'transparent'
           },
           ':active': {
-            // background: palette.themeDark,
-            // color: palette.white
+            background: 'transparent'
           }
         }
       }

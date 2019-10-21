@@ -8,16 +8,10 @@ import { useControlledState } from '../../Foundation';
 export const useTeachingBannerState: ITeachingBannerComponent['state'] = (
   props: Readonly<ITeachingBannerProps>
 ): ITeachingBannerViewProps => {
-  // const [clicks, setClicks] = useState(0);
-  const [icon] = useControlledState(props, 'icon', {
+  const [iconPremium] = useControlledState(props, 'iconPremium', {
     defaultPropName: 'defaultIcon',
     defaultPropValue: 'Diamond'
   });
-
-  // const [dismiss] = useControlledState(props, 'dismiss', {
-  //   defaultPropName: 'defaultIcon',
-  //   defaultPropValue: 'Emoji2'
-  // });
 
   // useCallback memoizes functions based on its dependency list to avoid unnecessarily mutating callback references.
   // It is important that any props and state used (like 'clicks' here) are also listed in the dependency array argument
@@ -28,7 +22,7 @@ export const useTeachingBannerState: ITeachingBannerComponent['state'] = (
 
   const viewProps: ITeachingBannerViewProps = {
     ...props,
-    icon
+    iconPremium
     // dismiss
     // text,
     // clicks,
