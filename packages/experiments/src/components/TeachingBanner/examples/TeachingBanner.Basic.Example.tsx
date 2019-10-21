@@ -77,9 +77,8 @@ const PremiumCustomExample = (p: IExampleProps) => (
     actions={actions}
     iconPremium={'WindowsLogo'}
     tokens={{
-      color: 'black',
+      color: theme.palette.neutralDark,
       background: theme.palette.themeLighter
-      // background: 'linear-gradient(to right, orange , yellow, green, cyan, blue, violet);'
     }}
   >
     <strong>Premium Custom Colors MessageBar.</strong>{' '}
@@ -126,8 +125,14 @@ const RainbowExample = (p: IExampleProps) => (
     dismiss={{
       styles: {
         root: {
+          color: 'black'
+        },
+        rootHovered: {
           color: 'white'
         }
+      },
+      iconProps: {
+        iconName: 'Emoji2'
       }
     }}
   >
@@ -161,7 +166,7 @@ const choiceOptions = [
   },
   {
     key: 'rainbow',
-    text: 'Rainbow Colors'
+    text: 'Custom Rainbow'
   },
   {
     key: 'all',

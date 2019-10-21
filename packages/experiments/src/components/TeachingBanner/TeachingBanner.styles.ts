@@ -10,21 +10,6 @@ const GlobalClassNames = {
   dismiss: 'ms-TeachingBanner-dismiss'
 };
 
-// const primaryTokens: ITeachingBannerComponent['tokens'] = {
-//   minHeight: 60
-// };
-// const baseTokens: ITeachingBannerComponent['tokens'] = {
-//   // color: 'blue'
-// };
-
-// const warningTokens: ITeachingBannerComponent['tokens'] = {
-//   // color: 'red'
-// };
-
-// const invertedTokens: ITeachingBannerComponent['tokens'] = {
-//   // color: 'white'
-// };
-
 const singleLineProps: IRawStyle = { overflowX: 'hidden', whiteSpace: 'nowrap' };
 
 /**
@@ -43,7 +28,6 @@ export const TeachingBannerTokens: ITeachingBannerComponent['tokens'] = (props, 
 export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, theme, tokens): ITeachingBannerStylesReturnType => {
   const classNames = getGlobalClassNames(GlobalClassNames, theme);
   const { palette } = theme;
-  const color = tokens.color || palette.white;
   const background = tokens.background || palette.themePrimary;
 
   return {
@@ -56,9 +40,9 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
         paddingBottom: 11,
         paddingLeft: 14,
         width: '100%',
-        minHeight: (props.premium && 60) || 40,
+        minHeight: ((props.premium || props.actions) && 60) || 40,
         borderRadius: 2,
-        color,
+        color: tokens.color || palette.white,
         background,
         boxSizing: 'border-box'
       }
@@ -69,7 +53,6 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
         fontSize: 24,
         marginRight: 6,
         marginLeft: 6
-        // color
       }
     ],
     textContainer: [classNames.text, props.multiline === false && { ...singleLineProps }],
@@ -81,7 +64,6 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
         right: 0,
         top: 0,
         margin: 8,
-        // color,
         width: 24,
         height: 24,
         selectors: {

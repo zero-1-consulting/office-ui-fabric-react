@@ -1,10 +1,9 @@
 /** @jsx withSlots */
-// import { Text } from 'office-ui-fabric-react/lib/Text';
 import { withSlots, getSlots, ThemeProvider } from '../../Foundation';
 
 import { ITeachingBannerComponent, ITeachingBannerProps, ITeachingBannerSlots } from './TeachingBanner.types';
-import { FontIcon } from '../../utilities/factoryComponents';
-import { Stack, StackItem, DefaultButton, PrimaryButton, IconButton } from 'office-ui-fabric-react';
+// import { FontIcon } from '../../utilities/factoryComponents';
+import { Stack, StackItem, DefaultButton, PrimaryButton, IconButton, FontIcon } from 'office-ui-fabric-react';
 
 /**
  * {@docCategory TeachingBanner}
@@ -21,10 +20,11 @@ export const TeachingBannerView: ITeachingBannerComponent['view'] = props => {
   });
 
   const { actions, children, premium, multiline, onDismiss, scheme = 'strong' } = props;
+  const wrap = multiline !== false;
 
   return (
     <ThemeProvider scheme={scheme}>
-      <Slots.root horizontal verticalAlign="center" wrap={multiline !== false} tokens={{ childrenGap: 8 }}>
+      <Slots.root horizontal verticalAlign="center" wrap={wrap} tokens={{ childrenGap: 8 }}>
         {premium && <Slots.iconPremium />}
         {children && (
           <Slots.textContainer grow shrink>
@@ -38,12 +38,7 @@ export const TeachingBannerView: ITeachingBannerComponent['view'] = props => {
             )}
           </Slots.actionsContainer>
         )}
-        <Slots.dismiss
-          iconProps={{ iconName: 'Cancel' }}
-          // title={closeButtonAriaLabel}
-          // ariaLabel={closeButtonAriaLabel}
-          onClick={onDismiss}
-        />
+        <Slots.dismiss iconProps={{ iconName: 'Cancel' }} onClick={onDismiss} />
       </Slots.root>
     </ThemeProvider>
   );
