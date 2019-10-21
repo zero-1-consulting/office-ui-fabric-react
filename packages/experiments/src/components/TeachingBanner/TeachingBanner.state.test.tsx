@@ -4,7 +4,7 @@ import { useTeachingBannerState } from './TeachingBanner.state';
 describe('TeachingBannerState', () => {
   test('should fall back to default values', () => {
     const { result } = renderHook(() => useTeachingBannerState({}));
-    expect(result.current.iconPremium).toBe(result.current.defaultPremiumIcon);
+    expect(result.current.iconPremium).toBe('Diamond');
   });
 
   test('should use default prop value', () => {
