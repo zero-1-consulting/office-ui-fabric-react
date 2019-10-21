@@ -6,10 +6,12 @@ interface IExampleProps {
   resetChoice?: () => void;
 }
 
+const theme = getTheme();
+
 const longText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-  sunt in culpa qui officia deserunt mollit anim id est laborum.`;
+aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+sunt in culpa qui officia deserunt mollit anim id est laborum.`;
 
 const actions: IButtonProps[] = [
   {
@@ -36,11 +38,11 @@ const choiceGroupStyles = {
   }
 };
 
-const theme = getTheme();
+const noOp = () => undefined;
 
 const DefaultExample = (p: IExampleProps) => (
-  <TeachingBanner>
-    <strong className="ms-fontWeight-semibold">Default MessageBar.</strong>{' '}
+  <TeachingBanner onDismiss={noOp}>
+    <strong className="ms-fontWeight-semibold">Default MessageBar. </strong>
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
     </Link>
@@ -48,13 +50,13 @@ const DefaultExample = (p: IExampleProps) => (
 );
 
 const DefaultSingleLineExample = (p: IExampleProps) => (
-  <TeachingBanner multiline={false} actions={actions}>
+  <TeachingBanner multiline={false} actions={actions} onDismiss={noOp}>
     <strong className="ms-fontWeight-semibold">Default Single Line MessageBar.</strong> {longText}
   </TeachingBanner>
 );
 
 const DefaultMultiLineExample = (p: IExampleProps) => (
-  <TeachingBanner actions={actions}>
+  <TeachingBanner actions={actions} onDismiss={noOp}>
     <strong className="ms-fontWeight-semibold">Default Multiline MessageBar.</strong>
     <br />
     {longText}
@@ -62,8 +64,8 @@ const DefaultMultiLineExample = (p: IExampleProps) => (
 );
 
 const PremiumExample = (p: IExampleProps) => (
-  <TeachingBanner premium={true} actions={actions}>
-    <strong>Premium MessageBar.</strong>{' '}
+  <TeachingBanner premium={true} actions={actions} onDismiss={noOp}>
+    <strong>Premium MessageBar. </strong>
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
     </Link>
@@ -81,7 +83,7 @@ const PremiumCustomExample = (p: IExampleProps) => (
       background: theme.palette.themeLighter
     }}
   >
-    <strong>Premium Custom Colors MessageBar.</strong>{' '}
+    <strong>Premium Custom MessageBar. </strong>
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
     </Link>
@@ -93,7 +95,8 @@ const RainbowExample = (p: IExampleProps) => (
     premium={true}
     scheme={'default'}
     actions={actions}
-    iconPremium={'WindowsLogo'}
+    iconPremium={'Emoji2'}
+    onDismiss={noOp}
     tokens={{
       color: 'black',
       background: 'linear-gradient(-20deg, fuchsia, orange, yellow, cyan, violet);'
@@ -122,7 +125,7 @@ const RainbowExample = (p: IExampleProps) => (
         }
       }
     }}
-    dismiss={{
+    dismissButton={{
       styles: {
         root: {
           color: 'black'
@@ -132,11 +135,11 @@ const RainbowExample = (p: IExampleProps) => (
         }
       },
       iconProps: {
-        iconName: 'Emoji2'
+        iconName: 'EmojiDisappointed'
       }
     }}
   >
-    <strong>Premium Custom Colors MessageBar.</strong>{' '}
+    <strong>Premium Custom Colors MessageBar. </strong>
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
     </Link>
@@ -175,8 +178,7 @@ const choiceOptions = [
 ];
 
 export const TeachingBannerBasicExample: React.StatelessComponent = () => {
-  // TODO: Switch back to choiceOptions[0].key
-  const [choice, setChoice] = React.useState<string | undefined>(choiceOptions.slice().pop()!.key);
+  const [choice, setChoice] = React.useState<string | undefined>(choiceOptions.slice().shift()!.key);
   const showAll = choice === 'all';
 
   const resetChoice = () => setChoice(undefined);
@@ -186,7 +188,7 @@ export const TeachingBannerBasicExample: React.StatelessComponent = () => {
       <StackItem disableShrink>
         <ChoiceGroup
           styles={choiceGroupStyles}
-          label="Select a MessageBar Example Below. To test in narrator, show one message at a time."
+          label="Select a Teaching Banner Example Below. To test in narrator, show one message at a time."
           selectedKey={choice}
           // tslint:disable-next-line: jsx-no-lambda
           onChange={(e, v) => setChoice(v!.key)}

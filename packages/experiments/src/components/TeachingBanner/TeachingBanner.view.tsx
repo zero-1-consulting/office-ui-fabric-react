@@ -1,9 +1,8 @@
 /** @jsx withSlots */
 import { withSlots, getSlots, ThemeProvider } from '../../Foundation';
-
 import { ITeachingBannerComponent, ITeachingBannerProps, ITeachingBannerSlots } from './TeachingBanner.types';
-// import { FontIcon } from '../../utilities/factoryComponents';
-import { Stack, StackItem, DefaultButton, PrimaryButton, IconButton, FontIcon } from 'office-ui-fabric-react';
+import { FontIcon } from '../../utilities/factoryComponents';
+import { Stack, StackItem, DefaultButton, PrimaryButton, IconButton } from 'office-ui-fabric-react';
 
 /**
  * {@docCategory TeachingBanner}
@@ -16,11 +15,10 @@ export const TeachingBannerView: ITeachingBannerComponent['view'] = props => {
     actionsContainer: Stack,
     actionPrimaryButton: PrimaryButton,
     actionDefaultButton: DefaultButton,
-    dismiss: IconButton
+    dismissButton: IconButton
   });
 
-  const { actions, children, premium, multiline, onDismiss, scheme = 'strong' } = props;
-  const wrap = multiline !== false;
+  const { actions, children, premium, onDismiss, multiline: wrap = true, scheme = 'strong' } = props;
 
   return (
     <ThemeProvider scheme={scheme}>
@@ -38,7 +36,7 @@ export const TeachingBannerView: ITeachingBannerComponent['view'] = props => {
             )}
           </Slots.actionsContainer>
         )}
-        <Slots.dismiss iconProps={{ iconName: 'Cancel' }} onClick={onDismiss} />
+        {onDismiss && <Slots.dismissButton iconProps={{ iconName: 'Cancel' }} onClick={onDismiss} />}
       </Slots.root>
     </ThemeProvider>
   );

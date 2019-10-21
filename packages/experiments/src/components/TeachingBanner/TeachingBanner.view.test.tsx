@@ -13,7 +13,7 @@ import { TeachingBannerView } from './TeachingBanner.view';
 // with snapshot tests exercising permutations of the props.
 describe('TeachingBannerView', () => {
   it('renders status view prop correctly', () => {
-    const tree = renderer.create(<TeachingBannerView clicks={12} />).toJSON();
+    const tree = renderer.create(<TeachingBannerView />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

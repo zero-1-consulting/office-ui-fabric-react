@@ -27,7 +27,7 @@ export class TeachingBannerPage extends React.Component<IComponentDemoPageProps,
             <p>
               Teaching banners are used to educate users about a product. Unlike callouts, banners are used in cases when you can’t point to
               a feature but instead need to educate on a concept or a set of features. These banners are dismissible and can contain call to
-              action buttons.{' '}
+              action buttons.
             </p>
           </div>
         }

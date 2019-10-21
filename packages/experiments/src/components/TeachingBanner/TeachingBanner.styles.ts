@@ -15,12 +15,7 @@ const singleLineProps: IRawStyle = { overflowX: 'hidden', whiteSpace: 'nowrap' }
 /**
  * {@docCategory TeachingBanner}
  */
-export const TeachingBannerTokens: ITeachingBannerComponent['tokens'] = (props, theme): ITeachingBannerTokenReturnType => [
-  // props.premium && primaryTokens
-  // baseTokens
-  // props.warning && warningTokens,
-  // theme.isInverted && invertedTokens
-];
+export const TeachingBannerTokens: ITeachingBannerComponent['tokens'] = (props, theme): ITeachingBannerTokenReturnType => [];
 
 /**
  * {@docCategory TeachingBanner}
@@ -28,7 +23,7 @@ export const TeachingBannerTokens: ITeachingBannerComponent['tokens'] = (props, 
 export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, theme, tokens): ITeachingBannerStylesReturnType => {
   const classNames = getGlobalClassNames(GlobalClassNames, theme);
   const { palette } = theme;
-  const background = tokens.background || palette.themePrimary;
+  const { onDismiss, multiline = true } = props;
 
   return {
     root: [
@@ -36,14 +31,14 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
       {
         position: 'relative',
         paddingTop: 10,
-        paddingRight: 55,
+        paddingRight: (onDismiss && 55) || 14,
         paddingBottom: 11,
         paddingLeft: 14,
         width: '100%',
         minHeight: ((props.premium || props.actions) && 60) || 40,
         borderRadius: 2,
         color: tokens.color || palette.white,
-        background,
+        background: tokens.background || palette.themePrimary,
         boxSizing: 'border-box'
       }
     ],
@@ -55,9 +50,9 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
         marginLeft: 6
       }
     ],
-    textContainer: [classNames.text, props.multiline === false && { ...singleLineProps }],
+    textContainer: [classNames.text, !multiline && { ...singleLineProps }],
     actionsContainer: [classNames.actions, { marginLeft: 'auto' }],
-    dismiss: [
+    dismissButton: [
       classNames.dismiss,
       {
         position: 'absolute',

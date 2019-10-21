@@ -9,8 +9,8 @@ describe('TeachingBanner', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders text prop correctly', () => {
-    const tree = renderer.create(<TeachingBanner text="textProp" />).toJSON();
+  it('renders children prop correctly', () => {
+    const tree = renderer.create(<TeachingBanner>Text</TeachingBanner>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

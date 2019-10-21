@@ -1,16 +1,6 @@
-import { ITextSlot } from 'office-ui-fabric-react/lib/Text';
-import { BaseButton, Button, ITheme, IStackSlot, IStackItemSlot, IIconProps, IButtonProps, ISchemeNames } from 'office-ui-fabric-react';
-import {
-  IComponent,
-  IComponentStyles,
-  IHTMLSlot,
-  IStyleableComponentProps,
-  ISlottableProps,
-  IHTMLElementSlot,
-  ISlotProp
-} from '@uifabric/foundation';
+import { BaseButton, Button, IStackSlot, IStackItemSlot, IButtonProps, ISchemeNames } from 'office-ui-fabric-react';
+import { IComponent, IComponentStyles, IStyleableComponentProps, ISlottableProps, ISlotProp } from '@uifabric/foundation';
 import { IFontIconSlot } from '../../utilities/factoryComponents.types';
-// import { IButtonSlot, IButtonProps } from '../Button';
 
 /**
  * {@docCategory TeachingBanner}
@@ -53,26 +43,34 @@ export interface ITeachingBannerSlots {
 
   /**
    * Defines the icon that is displayed in Premium mode.
-   * @defaultValue defaultIcon
+   * @defaultValue defaultPremiumIcon
    */
   iconPremium?: IFontIconSlot;
 
   /**
-   * Component sample prop. If provided, component is controlled.
+   * Container for Teaching Banner's children
    */
   textContainer?: IStackItemSlot;
 
   /**
-   * Component sample prop. If provided, component is controlled.
+   * Container for action buttons.
    */
   actionsContainer?: IStackSlot;
+
+  /**
+   * Action PrimaryButton Slot.
+   */
   actionPrimaryButton?: ISlotProp<IButtonProps>;
+
+  /**
+   * Action DefaultButton Slot.
+   */
   actionDefaultButton?: ISlotProp<IButtonProps>;
 
   /**
-   * Component sample prop. If provided, component is controlled.
+   * Dismiss IconButton Slot.
    */
-  dismiss?: ISlotProp<IButtonProps>;
+  dismissButton?: ISlotProp<IButtonProps>;
 }
 
 /**
@@ -80,72 +78,68 @@ export interface ITeachingBannerSlots {
  * If you don't want these props to be included in your component, just remove this extension.
  * {@docCategory TeachingBanner}
  */
-export interface ITeachingBannerProps  // extends ITeachingBannerSlots,
+export interface ITeachingBannerProps
   extends ISlottableProps<ITeachingBannerSlots>,
     IStyleableComponentProps<ITeachingBannerViewProps, ITeachingBannerTokens, ITeachingBannerStyles> {
   /**
-   * @defaultValue 'strong'
+   * Changes scheme for sub components
+   * @defaultValue strong
    */
   scheme?: ISchemeNames;
 
   /**
-   * Component sample default prop for use if component is uncontrolled.
-   * @defaultValue 'Default Icon'
+   * Component default Premium icon for use if component is uncontrolled.
+   * @defaultValue Diamond
    */
-  defaultIcon?: string;
-
-  // // Setting this prop to true will apply different styling to the text slot.
-  // warning?: boolean;
+  defaultPremiumIcon?: string;
 
   /**
-   * The actions you want to show on the other side.
+   * The action buttons' props you want to show on the other side.
    */
   actions?: IButtonProps[];
 
   /**
-   *
+   * Set Premium mode. Shows the banner's icon and thickness is bigger.
+   * @defaultValue false
    */
   premium?: boolean;
 
   /**
-   *
-   * @defaultValue 'true'
+   * Enables wrapping text and action buttons.
+   * @defaultValue true
    */
   multiline?: boolean;
 
   /**
-   * Whether the message bar has a dismiss button and its callback.
+   * Whether the Teaching Banner has a dismiss button and its callback.
    * If null, we don't show a dismiss button.
    * @defaultvalue null
    */
   onDismiss?: (ev?: React.MouseEvent<HTMLElement | BaseButton | Button>) => any;
-
-  /**
-   * Aria label on dismiss button if onDismiss is defined.
-   */
-  dismissButtonAriaLabel?: string;
 }
 
 /**
  * {@docCategory TeachingBanner}
  */
 export interface ITeachingBannerViewProps extends ITeachingBannerProps {
-  // You can define view only props here.
   /**
    * Sample props internal to component. These types of props aren't exposed
    *   externally to consumers and their values are typically determined by component state.
    */
-  // clicks: number;
-  // onClick?: (ev?: React.MouseEvent<HTMLElement>) => void;
 }
 
 /**
  * {@docCategory TeachingBanner}
  */
 export interface ITeachingBannerTokens {
-  // Define tokens for your component here. Tokens are styling 'knobs' that your component will automatically
-  // apply to styling sections in the styles file.
+  /**
+   * Token for Premium icon, text and dismissButton color.
+   */
   color?: string;
+
+  /**
+   * Token for the root background;
+   */
   background?: string;
 }
 
