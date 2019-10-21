@@ -14,6 +14,11 @@ export const useTeachingBannerState: ITeachingBannerComponent['state'] = (
     defaultPropValue: 'Diamond'
   });
 
+  // const [dismiss] = useControlledState(props, 'dismiss', {
+  //   defaultPropName: 'defaultIcon',
+  //   defaultPropValue: 'Emoji2'
+  // });
+
   // useCallback memoizes functions based on its dependency list to avoid unnecessarily mutating callback references.
   // It is important that any props and state used (like 'clicks' here) are also listed in the dependency array argument
   // to ensure that callbacks change when their dependencies do.
@@ -24,6 +29,7 @@ export const useTeachingBannerState: ITeachingBannerComponent['state'] = (
   const viewProps: ITeachingBannerViewProps = {
     ...props,
     icon
+    // dismiss
     // text,
     // clicks,
     // onClick: _onClick

@@ -1,18 +1,6 @@
 import * as React from 'react';
-import {
-  MessageBarButton,
-  Link,
-  Stack,
-  StackItem,
-  MessageBar,
-  MessageBarType,
-  ChoiceGroup,
-  IStackProps,
-  PrimaryButton,
-  DefaultButton
-} from 'office-ui-fabric-react';
+import { Link, Stack, StackItem, ChoiceGroup, IStackProps } from 'office-ui-fabric-react';
 import { TeachingBanner } from '@uifabric/experiments';
-// import { Button } from '../../Button';
 
 interface IExampleProps {
   resetChoice?: () => void;
@@ -48,12 +36,21 @@ const PremiumExample = (p: IExampleProps) => (
     actionsContainer={{
       'aria-label': 'jkjahsgdjhasjdi'
     }}
-    actions={
-      <>
-        <PrimaryButton>Primary</PrimaryButton>
-        <DefaultButton>Default</DefaultButton>
-      </>
-    }
+    // actions={
+    //   <>
+    //     <Button primary={true}>Primary</Button>
+    //     <Button>Default</Button>
+    //   </>
+    // }
+    actions={[
+      {
+        primary: true,
+        text: 'Primary'
+      },
+      {
+        text: 'Default'
+      }
+    ]}
     tokens={
       {
         // background: 'linear-gradient(to right, orange , yellow, green, cyan, blue, violet);'

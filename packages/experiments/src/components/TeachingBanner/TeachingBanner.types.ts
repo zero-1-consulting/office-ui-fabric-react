@@ -1,7 +1,16 @@
 import { ITextSlot } from 'office-ui-fabric-react/lib/Text';
-import { BaseButton, Button, ITheme, IStackSlot, IStackItemSlot } from 'office-ui-fabric-react';
-import { IComponent, IComponentStyles, IHTMLSlot, IStyleableComponentProps, ISlottableProps, IHTMLElementSlot } from '@uifabric/foundation';
+import { BaseButton, Button, ITheme, IStackSlot, IStackItemSlot, IIconProps, IButtonProps } from 'office-ui-fabric-react';
+import {
+  IComponent,
+  IComponentStyles,
+  IHTMLSlot,
+  IStyleableComponentProps,
+  ISlottableProps,
+  IHTMLElementSlot,
+  ISlotProp
+} from '@uifabric/foundation';
 import { IFontIconSlot } from '../../utilities/factoryComponents.types';
+// import { IButtonSlot, IButtonProps } from '../Button';
 
 /**
  * {@docCategory TeachingBanner}
@@ -57,6 +66,15 @@ export interface ITeachingBannerSlots {
    * Component sample prop. If provided, component is controlled.
    */
   actionsContainer?: IStackSlot;
+  // actionButton?: IButtonSlot;
+  actionPrimaryButton?: ISlotProp<IButtonProps>;
+  actionDefaultButton?: ISlotProp<IButtonProps>;
+
+  /**
+   * Component sample prop. If provided, component is controlled.
+   */
+  dismiss?: ISlotProp<IButtonProps>;
+  // dismiss?: IButtonSlot<IIconProps>;
 }
 
 /**
@@ -79,12 +97,19 @@ export interface ITeachingBannerProps  // extends ITeachingBannerSlots,
   /**
    * The actions you want to show on the other side.
    */
-  actions?: JSX.Element;
+  // actions?: JSX.Element;
+  actions?: IButtonProps[];
 
   /**
    *
    */
   premium?: boolean;
+
+  /**
+   *
+   * @defaultValue 'true'
+   */
+  multiline?: boolean;
 
   /**
    * Whether the message bar has a dismiss button and its callback.
