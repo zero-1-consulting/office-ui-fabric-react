@@ -30,9 +30,9 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
       classNames.root,
       {
         position: 'relative',
-        paddingTop: 10,
+        // paddingTop: 10,
         paddingRight: (onDismiss && 55) || 14,
-        paddingBottom: 11,
+        paddingBottom: 1,
         paddingLeft: 14,
         width: '100%',
         minHeight: ((props.premium || props.actions) && 60) || 40,
@@ -50,8 +50,8 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
         marginLeft: 6
       }
     ],
-    textContainer: [classNames.text, !multiline && { ...singleLineProps }],
-    actionsContainer: [classNames.actions, { marginLeft: 'auto' }],
+    textContainer: [classNames.text, { paddingTop: 10, paddingBottom: 10 }, !multiline && { ...singleLineProps }],
+    actionsContainer: [classNames.actions, { paddingTop: 10, paddingBottom: 10, marginLeft: 'auto' }],
     dismissButton: [
       classNames.dismiss,
       {

@@ -38,10 +38,8 @@ const choiceGroupStyles = {
   }
 };
 
-const noOp = () => undefined;
-
 const DefaultExample = (p: IExampleProps) => (
-  <TeachingBanner onDismiss={noOp}>
+  <TeachingBanner onDismiss={p.resetChoice}>
     <strong className="ms-fontWeight-semibold">Default MessageBar. </strong>
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
@@ -50,13 +48,13 @@ const DefaultExample = (p: IExampleProps) => (
 );
 
 const DefaultSingleLineExample = (p: IExampleProps) => (
-  <TeachingBanner multiline={false} actions={actions} onDismiss={noOp}>
+  <TeachingBanner multiline={false} actions={actions} onDismiss={p.resetChoice}>
     <strong className="ms-fontWeight-semibold">Default Single Line MessageBar.</strong> {longText}
   </TeachingBanner>
 );
 
 const DefaultMultiLineExample = (p: IExampleProps) => (
-  <TeachingBanner actions={actions} onDismiss={noOp}>
+  <TeachingBanner actions={actions} onDismiss={p.resetChoice}>
     <strong className="ms-fontWeight-semibold">Default Multiline MessageBar.</strong>
     <br />
     {longText}
@@ -64,7 +62,7 @@ const DefaultMultiLineExample = (p: IExampleProps) => (
 );
 
 const PremiumExample = (p: IExampleProps) => (
-  <TeachingBanner premium={true} actions={actions} onDismiss={noOp}>
+  <TeachingBanner premium={true} actions={actions} onDismiss={p.resetChoice}>
     <strong>Premium MessageBar. </strong>
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
@@ -96,7 +94,7 @@ const RainbowExample = (p: IExampleProps) => (
     scheme={'default'}
     actions={actions}
     iconPremium={'Emoji2'}
-    onDismiss={noOp}
+    onDismiss={p.resetChoice}
     tokens={{
       color: 'black',
       background: 'linear-gradient(-20deg, fuchsia, orange, yellow, cyan, violet);'
@@ -178,7 +176,7 @@ const choiceOptions = [
 ];
 
 export const TeachingBannerBasicExample: React.StatelessComponent = () => {
-  const [choice, setChoice] = React.useState<string | undefined>(choiceOptions.slice().shift()!.key);
+  const [choice, setChoice] = React.useState<string | undefined>(choiceOptions.slice().pop()!.key);
   const showAll = choice === 'all';
 
   const resetChoice = () => setChoice(undefined);

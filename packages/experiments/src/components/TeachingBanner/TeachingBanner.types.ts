@@ -124,8 +124,9 @@ export interface ITeachingBannerProps
 export interface ITeachingBannerViewProps extends ITeachingBannerProps {
   /**
    * Sample props internal to component. These types of props aren't exposed
-   *   externally to consumers and their values are typically determined by component state.
+   * externally to consumers and their values are typically determined by component state.
    */
+  dismissed?: boolean;
 }
 
 /**

@@ -18,6 +18,9 @@ export const TeachingBannerView: ITeachingBannerComponent['view'] = props => {
     dismissButton: IconButton
   });
 
+  if (props.dismissed) {
+    return null;
+  }
   const { actions, children, premium, onDismiss, multiline: wrap = true, scheme = 'strong' } = props;
 
   return (
