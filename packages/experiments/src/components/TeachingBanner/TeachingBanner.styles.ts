@@ -5,7 +5,8 @@ import { IRawStyle } from '@uifabric/styling';
 const GlobalClassNames = {
   root: 'ms-TeachingBanner',
   icon: 'ms-TeachingBanner-icon',
-  text: 'ms-TeachingBanner-text',
+  headline: 'ms-TeachingBanner-headline',
+  content: 'ms-TeachingBanner-content',
   actions: 'ms-TeachingBanner-actions',
   dismiss: 'ms-TeachingBanner-dismiss'
 };
@@ -23,7 +24,8 @@ export const TeachingBannerTokens: ITeachingBannerComponent['tokens'] = (props, 
 export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, theme, tokens): ITeachingBannerStylesReturnType => {
   const classNames = getGlobalClassNames(GlobalClassNames, theme);
   const { palette } = theme;
-  const { onDismiss, multiline = true } = props;
+  const { onDismiss, multiline = false } = props;
+  const { gap = 20 } = tokens;
 
   return {
     root: [
@@ -32,7 +34,7 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
         position: 'relative',
         // paddingTop: 10,
         paddingRight: (onDismiss && 55) || 14,
-        paddingBottom: 1,
+        // paddingBottom: 11,
         paddingLeft: 14,
         width: '100%',
         minHeight: ((props.premium || props.actions) && 60) || 40,
@@ -42,6 +44,16 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
         boxSizing: 'border-box'
       }
     ],
+    content: [
+      classNames.content,
+      (multiline && {
+        display: 'flex',
+        alignItems: 'center',
+        flexWrap: 'nowrap',
+        marginTop: 14,
+        marginBottom: 6
+      }) || { ...singleLineProps }
+    ],
     iconPremium: [
       classNames.icon,
       {
@@ -50,8 +62,20 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
         marginLeft: 6
       }
     ],
-    textContainer: [classNames.text, { paddingTop: 10, paddingBottom: 10 }, !multiline && { ...singleLineProps }],
-    actionsContainer: [classNames.actions, { paddingTop: 10, paddingBottom: 10, marginLeft: 'auto' }],
+    headline: [classNames.headline, { flexGrow: 1, fontWeight: 600 }], // marginTop: 16, marginRight: 16,
+    actionsContainer: [
+      classNames.actions,
+      {
+        // marginLeft: 'auto',
+        justifyContent: 'flex-end',
+        alignSelf: 'flex-end',
+        selectors: {
+          '.ms-Button': {
+            marginLeft: gap
+          }
+        }
+      }
+    ],
     dismissButton: [
       classNames.dismiss,
       {

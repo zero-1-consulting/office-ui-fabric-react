@@ -42,7 +42,7 @@ export class TeachingBannerPage extends React.Component<IComponentDemoPageProps,
         donts={
           <div>
             <ul>
-              <li />
+              <li>Don't use to display errors, warning or info messages.</li>
             </ul>
           </div>
         }

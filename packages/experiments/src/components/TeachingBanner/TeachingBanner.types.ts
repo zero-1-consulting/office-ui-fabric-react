@@ -1,5 +1,5 @@
-import { BaseButton, Button, IStackSlot, IStackItemSlot, IButtonProps, ISchemeNames } from 'office-ui-fabric-react';
-import { IComponent, IComponentStyles, IStyleableComponentProps, ISlottableProps, ISlotProp } from '@uifabric/foundation';
+import { BaseButton, Button, IStackSlot, IStackItemSlot, IButtonProps, ISchemeNames, ITextSlot } from 'office-ui-fabric-react';
+import { IComponent, IComponentStyles, IStyleableComponentProps, ISlottableProps, ISlotProp, IHTMLSlot } from '@uifabric/foundation';
 import { IFontIconSlot } from '../../utilities/factoryComponents.types';
 
 /**
@@ -48,9 +48,14 @@ export interface ITeachingBannerSlots {
   iconPremium?: IFontIconSlot;
 
   /**
-   * Container for Teaching Banner's children
+   * Text to add as a headline.
    */
-  textContainer?: IStackItemSlot;
+  headline?: ITextSlot;
+
+  /**
+   * Content for Teaching Banner, aka children
+   */
+  content?: IStackItemSlot;
 
   /**
    * Container for action buttons.
@@ -142,6 +147,11 @@ export interface ITeachingBannerTokens {
    * Token for the root background;
    */
   background?: string;
+
+  /**
+   * Token for the spacing between elements;
+   */
+  gap?: number;
 }
 
 /**

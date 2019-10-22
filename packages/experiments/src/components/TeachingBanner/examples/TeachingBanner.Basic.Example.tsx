@@ -40,7 +40,7 @@ const choiceGroupStyles = {
 
 const DefaultExample = (p: IExampleProps) => (
   <TeachingBanner onDismiss={p.resetChoice}>
-    <strong className="ms-fontWeight-semibold">Default MessageBar. </strong>
+    Default MessageBar.{' '}
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
     </Link>
@@ -48,22 +48,20 @@ const DefaultExample = (p: IExampleProps) => (
 );
 
 const DefaultSingleLineExample = (p: IExampleProps) => (
-  <TeachingBanner multiline={false} actions={actions} onDismiss={p.resetChoice}>
-    <strong className="ms-fontWeight-semibold">Default Single Line MessageBar.</strong> {longText}
+  <TeachingBanner headline={{ children: 'Default Single Line MessageBar.' }} actions={actions} onDismiss={p.resetChoice}>
+    {longText}
   </TeachingBanner>
 );
 
 const DefaultMultiLineExample = (p: IExampleProps) => (
-  <TeachingBanner actions={actions} onDismiss={p.resetChoice}>
-    <strong className="ms-fontWeight-semibold">Default Multiline MessageBar.</strong>
-    <br />
-    {longText}
+  <TeachingBanner actions={actions} headline="Default Multiline MessageBar." multiline={true} onDismiss={p.resetChoice}>
+    <p>{longText}</p>
   </TeachingBanner>
 );
 
 const PremiumExample = (p: IExampleProps) => (
   <TeachingBanner premium={true} actions={actions} onDismiss={p.resetChoice}>
-    <strong>Premium MessageBar. </strong>
+    Premium MessageBar.
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
     </Link>
@@ -81,7 +79,7 @@ const PremiumCustomExample = (p: IExampleProps) => (
       background: theme.palette.themeLighter
     }}
   >
-    <strong>Premium Custom MessageBar. </strong>
+    Premium Custom MessageBar.
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
     </Link>
@@ -137,7 +135,7 @@ const RainbowExample = (p: IExampleProps) => (
       }
     }}
   >
-    <strong>Premium Custom Colors MessageBar. </strong>
+    Premium Custom Colors MessageBar.
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
     </Link>
