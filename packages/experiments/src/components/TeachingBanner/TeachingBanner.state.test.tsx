@@ -4,8 +4,6 @@ import { useTeachingBannerState } from './TeachingBanner.state';
 import { TeachingBanner } from './TeachingBanner';
 import { mount } from 'enzyme';
 
-// const noop = () => null;
-
 describe('TeachingBannerState', () => {
   test('should fall back to default values', () => {
     const { result } = renderHook(() => useTeachingBannerState({}));
@@ -26,13 +24,6 @@ describe('TeachingBannerState', () => {
     const callback = (ev: React.MouseEvent<HTMLElement>) => null;
     const component = mount(<TeachingBanner onDismiss={callback} />);
 
-    // console.log('COMPONENT:', component);
-
-    // expect(component.find('.ms-TeachingBanner').first()).toBeTruthy();
-
-    // expect(component).toBeFalsy();
-
-    // const component = mount(<TeachingBanner>Text</TeachingBanner>);
     expect(
       component
         .find('.ms-TeachingBanner')
