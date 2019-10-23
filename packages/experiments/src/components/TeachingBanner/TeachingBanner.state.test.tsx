@@ -4,7 +4,7 @@ import { useTeachingBannerState } from './TeachingBanner.state';
 import { TeachingBanner } from './TeachingBanner';
 import { mount } from 'enzyme';
 
-const noop = () => null;
+// const noop = () => null;
 
 describe('TeachingBannerState', () => {
   test('should fall back to default values', () => {

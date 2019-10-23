@@ -1,13 +1,5 @@
-import { BaseButton, Button, IStackSlot, IStackItemSlot, IButtonProps, ISchemeNames, ITextSlot } from 'office-ui-fabric-react';
-import {
-  IComponent,
-  IComponentStyles,
-  IStyleableComponentProps,
-  ISlottableProps,
-  ISlotProp,
-  IHTMLSlot,
-  IHTMLElementSlot
-} from '@uifabric/foundation';
+import { BaseButton, Button, IStackSlot, IButtonProps, ISchemeNames, ITextSlot } from 'office-ui-fabric-react';
+import { IComponent, IComponentStyles, IStyleableComponentProps, ISlottableProps, ISlotProp, IHTMLSlot } from '@uifabric/foundation';
 import { IFontIconSlot } from '../../utilities/factoryComponents.types';
 
 /**
