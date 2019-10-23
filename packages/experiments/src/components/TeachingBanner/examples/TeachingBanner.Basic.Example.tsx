@@ -49,7 +49,7 @@ const DefaultExample = (p: IExampleProps) => (
 
 const DefaultSingleLineExample = (p: IExampleProps) => (
   <TeachingBanner headline={{ children: 'Default Single Line MessageBar.' }} actions={actions} onDismiss={p.resetChoice}>
-    {longText}
+    <span>{longText}</span>
   </TeachingBanner>
 );
 
@@ -60,8 +60,7 @@ const DefaultMultiLineExample = (p: IExampleProps) => (
 );
 
 const PremiumExample = (p: IExampleProps) => (
-  <TeachingBanner premium={true} actions={actions} onDismiss={p.resetChoice}>
-    Premium MessageBar.
+  <TeachingBanner premium={true} actions={actions} headline="Premium MessageBar." onDismiss={p.resetChoice}>
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
     </Link>
@@ -78,8 +77,8 @@ const PremiumCustomExample = (p: IExampleProps) => (
       color: theme.palette.neutralDark,
       background: theme.palette.themeLighter
     }}
+    headline="Premium Custom MessageBar."
   >
-    Premium Custom MessageBar.
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
     </Link>
@@ -92,6 +91,7 @@ const RainbowExample = (p: IExampleProps) => (
     scheme={'default'}
     actions={actions}
     iconPremium={'Emoji2'}
+    headline="Premium Custom Colors MessageBar."
     onDismiss={p.resetChoice}
     tokens={{
       color: 'black',
@@ -134,8 +134,9 @@ const RainbowExample = (p: IExampleProps) => (
         iconName: 'EmojiDisappointed'
       }
     }}
+    multiline={true}
   >
-    Premium Custom Colors MessageBar.
+    <p>{longText}</p>
     <Link href="https://www.bing.com" target="_blank">
       Visit our website.
     </Link>

@@ -9,10 +9,10 @@ import { Stack, StackItem, DefaultButton, PrimaryButton, IconButton, Text } from
  */
 export const TeachingBannerView: ITeachingBannerComponent['view'] = props => {
   const Slots = getSlots<ITeachingBannerProps, ITeachingBannerSlots>(props, {
-    root: Stack,
+    root: 'div',
     iconPremium: FontIcon,
+    content: 'div',
     headline: Text,
-    content: StackItem,
     actionsContainer: Stack,
     actionPrimaryButton: PrimaryButton,
     actionDefaultButton: DefaultButton,
@@ -22,14 +22,14 @@ export const TeachingBannerView: ITeachingBannerComponent['view'] = props => {
   if (props.dismissed) {
     return null;
   }
-  const { actions, children, premium, headline, onDismiss, multiline: wrap = false, scheme = 'strong' } = props;
+  const { actions, children, premium, headline, onDismiss, scheme = 'strong' } = props;
 
   return (
     <ThemeProvider scheme={scheme}>
-      <Slots.root horizontal verticalAlign="center" wrap={wrap} tokens={{ padding: '10px 0 11px' }}>
-        <Slots.content grow shrink>
+      <Slots.root>
+        <Slots.content>
           {premium && <Slots.iconPremium />}
-          {headline && <Slots.headline as="h1" />}
+          {headline && <Slots.headline as="strong" />}
           {children}
         </Slots.content>
         {actions && (

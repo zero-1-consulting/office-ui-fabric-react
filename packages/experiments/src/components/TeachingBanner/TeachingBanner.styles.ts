@@ -11,7 +11,7 @@ const GlobalClassNames = {
   dismiss: 'ms-TeachingBanner-dismiss'
 };
 
-const singleLineProps: IRawStyle = { overflowX: 'hidden', whiteSpace: 'nowrap' };
+// const singleLineProps: IRawStyle = { overflowX: 'hidden', whiteSpace: 'nowrap' };
 
 /**
  * {@docCategory TeachingBanner}
@@ -32,8 +32,11 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
       classNames.root,
       {
         position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        flexWrap: (multiline && 'wrap') || 'nowrap',
         // paddingTop: 10,
-        paddingRight: (onDismiss && 55) || 14,
+        paddingRight: (onDismiss && !multiline && 55) || 14,
         // paddingBottom: 11,
         paddingLeft: 14,
         width: '100%',
@@ -46,32 +49,53 @@ export const TeachingBannerStyles: ITeachingBannerComponent['styles'] = (props, 
     ],
     content: [
       classNames.content,
-      (multiline && {
+      {
         display: 'flex',
         alignItems: 'center',
-        flexWrap: 'nowrap',
-        marginTop: 14,
-        marginBottom: 6
-      }) || { ...singleLineProps }
+        overflowX: 'hidden',
+        textOverflow: 'ellipsis',
+        selectors: {
+          '&>*:not(.ms-TeachingBanner-icon):not(.ms-TeachingBanner-heading)': {
+            overflowX: 'hidden',
+            textOverflow: 'ellipsis'
+          }
+        }
+      },
+      // { overflowX: 'hidden', textOverflow: 'ellipsis' },
+      // !multiline && { ...singleLineProps }
+      (multiline && {
+        marginTop: 25,
+        flexDirection: 'column',
+        alignItems: 'flex-start'
+      }) || { overflowX: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }
     ],
     iconPremium: [
       classNames.icon,
+      // 'ms-StackItem',
       {
+        flex: '0 0 auto',
         fontSize: 24,
-        marginRight: 6,
+        marginRight: 17,
         marginLeft: 6
       }
     ],
-    headline: [classNames.headline, { flexGrow: 1, fontWeight: 600 }], // marginTop: 16, marginRight: 16,
+    headline: [
+      classNames.headline,
+      // 'ms-StackItem',
+      { flex: '0 0 auto', marginRight: 16, fontWeight: 600 }
+    ],
     actionsContainer: [
       classNames.actions,
       {
-        // marginLeft: 'auto',
-        justifyContent: 'flex-end',
-        alignSelf: 'flex-end',
+        marginLeft: 'auto',
+        // marginBottom: 16,
+        // justifyContent: 'flex-end',
+        // alignSelf: 'flex-end',
         selectors: {
           '.ms-Button': {
-            marginLeft: gap
+            marginLeft: gap,
+            marginTop: 14,
+            marginBottom: 14
           }
         }
       }

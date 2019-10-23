@@ -1,5 +1,13 @@
 import { BaseButton, Button, IStackSlot, IStackItemSlot, IButtonProps, ISchemeNames, ITextSlot } from 'office-ui-fabric-react';
-import { IComponent, IComponentStyles, IStyleableComponentProps, ISlottableProps, ISlotProp, IHTMLSlot } from '@uifabric/foundation';
+import {
+  IComponent,
+  IComponentStyles,
+  IStyleableComponentProps,
+  ISlottableProps,
+  ISlotProp,
+  IHTMLSlot,
+  IHTMLElementSlot
+} from '@uifabric/foundation';
 import { IFontIconSlot } from '../../utilities/factoryComponents.types';
 
 /**
@@ -39,7 +47,7 @@ export interface ITeachingBannerSlots {
   /**
    * Root element.
    */
-  root?: IStackSlot;
+  root?: IHTMLSlot;
 
   /**
    * Defines the icon that is displayed in Premium mode.
@@ -53,9 +61,9 @@ export interface ITeachingBannerSlots {
   headline?: ITextSlot;
 
   /**
-   * Content for Teaching Banner, aka children
+   * Content for Teaching Banner
    */
-  content?: IStackItemSlot;
+  content?: IStackSlot;
 
   /**
    * Container for action buttons.
